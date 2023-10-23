@@ -24,6 +24,15 @@ async def get_options_selected_form(data: DataInputGetOptionsSelectedFormDto) ->
 
 @selected_form_router.post("/selected_form/")
 async def selected_form(data: DataInputSelectedFormDto) -> DataOutputSelectedFormDto:
+    rows = data.rows
+    selected_row_index = data.selected_row_index
+    index_option = data.index_option
+    selected_rule_index = data.selected_rule_index
+
+    print(rows)
+    print(selected_row_index)
+    print(index_option)
+    print(selected_rule_index)
 
     #write here
 

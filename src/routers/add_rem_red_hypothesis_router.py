@@ -1,3 +1,4 @@
+import select
 from typing import Any, Dict, List
 from pydantic import BaseModel
 from fastapi import APIRouter
@@ -13,6 +14,7 @@ type for new_line:
     rem: are used when we remove hypotheses
     red: are used when we reduce abs
     default: are used when we apply the other rules
+    
 """
 
 
@@ -21,6 +23,9 @@ type for new_line:
 async def add_hypothesis_only_add(data: DataInputAddHypothesisOnlyAddDto) -> DataOutputAddHypothesisOnlyAddDto:
     selected_rule_index = data.selected_rule_index
     input_data = data.input_data
+
+    print(selected_rule_index)
+    print(input_data)
 
 
 
@@ -33,12 +38,17 @@ async def add_hypothesis_only_add(data: DataInputAddHypothesisOnlyAddDto) -> Dat
 
 
 
-@add_rem_red_router.post("/add_hypothesis_rule/")
+@add_rem_red_router.post("/add_hypothesis_rule/") #ERRO CONCEITUAL: ESSA FUNÇÃO NAO ADICIONA HIPÓTESE.
 async def add_hypothesis_rule(data: DataInputAddHypothesisRuleDto) -> DataOutputAddHypothesisRuleDto:
     rows = data.rows
     index_selected_row = data.index_selected_row
     selected_rule_index = data.selected_rule_index # could be 4 or 5
     input_data = data.input_data
+
+    print(rows)
+    print(index_selected_row)
+    print(selected_rule_index)
+    print(input_data)
 
     #write here
 
@@ -55,11 +65,11 @@ async def add_hypothesis_rule(data: DataInputAddHypothesisRuleDto) -> DataOutput
 async def rem_hypothesis(data: DataInputRemoveHypothesisDto) -> DataOutputRemoveHypothesisDto:
     rows = data.rows_created
 
+    print(rows)
+
     #write here
 
-    #exemple output
     output = DataOutputRemoveHypothesisDto(
-
     type_output = "CREATED",
     message="New line created",
     rows_created_modified = [
@@ -76,6 +86,8 @@ async def rem_hypothesis(data: DataInputRemoveHypothesisDto) -> DataOutputRemove
 @add_rem_red_router.post("/red_absurde/")
 async def red_absurde(data: DataInputRedAbsDto) -> DataOutputRedAbsDto:
     rows = data.rows_created
+    
+    print(rows)
 
     #write here
 

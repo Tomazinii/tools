@@ -51,6 +51,14 @@ apply_rule_router = APIRouter()
 
 @apply_rule_router.post("/apply_rule_router/")
 async def apply_rule(data: DataInputApplyRuleDto) -> DataOutputApplyRuleDto:
+    
+    rows = data.rows
+    index_selected_rows = data.index_selected_rows
+    selected_rule_data = data.selected_rule_data
+
+    print("rows", rows)
+    print("index_selected_rows", index_selected_rows)
+    print("selected_rule_data", selected_rule_data)
 
     #write here
 
