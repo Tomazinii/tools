@@ -6,7 +6,13 @@ from exercise_route import exercise_api_route
 
 app = FastAPI()
 
-origins = ["*"]
+origins = [
+    "http://localhost",
+    "https://localhost.tiangolo.com",
+    "http://localhost",
+    "http://localhost:3001",
+    "http://127.0.0.1:3001",
+]
 
 app.add_middleware(
     CORSMiddleware,

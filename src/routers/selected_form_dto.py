@@ -9,8 +9,13 @@ class DataInputGetOptionsSelectedFormDto(BaseModel):
         all mandatory 
     """
 
-    rows: List[Rows]
-    selected_row_index: int
+    selected_proof_line_indexes: List[int]
+    pb_index: int
+    list_index: int
+    type_selected: str
+    sel_rule: int
+    total_or_partial:str
+
 
 
 class DataOutputGetOutputSelectedFormDto(BaseModel):
@@ -18,7 +23,7 @@ class DataOutputGetOutputSelectedFormDto(BaseModel):
         Type of data outPut.
         all mandatory 
     """
-    options: List[Rows]
+    data: Any
 
 
 class DataInputSelectedFormDto(BaseModel):
@@ -44,3 +49,8 @@ class DataOutputSelectedFormDto(BaseModel):
 
 
 
+
+class SelectedFormOutputDto(BaseModel):
+    type_output: str
+    message: str 
+    lines: List[Rows]

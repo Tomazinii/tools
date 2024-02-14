@@ -16,9 +16,14 @@ class DataInputApplyRuleDto(BaseModel):
     Args:
         rows : This list is a combination of the propositions in the question and the propositions created
     """
-    rows: List[Rows] # This list is a combination of the propositions in the question and the propositions created
-    index_selected_rows: List[int] # this is the index of the selected rows
-    selected_rule_data: SelectedRuleData # This dictionary contains the data 
+    selected_proof_line_indexes: List[int] # this is the index of the selected rows
+    pb_index: int
+    list_index: int
+    type_selected: str
+    sel_rule: int 
+    input_formula: str = ""
+    total_or_partial: str = "total"
+    selection: int = 0
 
 
 class DataOutputApplyRuleDto(BaseModel):
@@ -28,5 +33,5 @@ class DataOutputApplyRuleDto(BaseModel):
     """
     type_output: str
     message: str 
-    new_line: NewLine
+    lines: List[NewLine]
 
